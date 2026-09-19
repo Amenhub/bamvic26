@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --color-orange: #D9720C;
+  --color-beige: #EDE3CF;
+  --color-brown: #3B2314;
+  --color-brown-dark: #2C1701;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
