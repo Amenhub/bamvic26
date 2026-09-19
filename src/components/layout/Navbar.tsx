@@ -34,7 +34,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img
-            src="/src/assets/logo.svg"
+            src="https://res.cloudinary.com/dskyahrkd/image/upload/v1789846435/logo_bnphvk.svg"
             alt="Bamvic '26"
             className="h-10 md:h-12 w-auto"
           />
