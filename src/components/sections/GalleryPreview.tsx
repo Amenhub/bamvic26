@@ -11,7 +11,7 @@ function GalleryImage({ src, alt, className = "" }: GalleryImageProps) {
   return (
     <div
       className={`
-        group relative overflow-hidden rounded-[24px] md:rounded-[32px]
+        group relative h-full min-h-[220px] overflow-hidden rounded-[24px] md:rounded-[32px]
         transition-shadow duration-500
         hover:shadow-[0_20px_50px_-15px_rgba(59,35,20,0.3)]
         ${className}
@@ -22,7 +22,7 @@ function GalleryImage({ src, alt, className = "" }: GalleryImageProps) {
         alt={alt}
         loading="lazy"
         className="
-          absolute inset-0 w-full h-full object-cover
+          h-full w-full object-cover
           transition-transform duration-[800ms] ease-out
           group-hover:scale-110
         "
@@ -52,7 +52,7 @@ export default function GalleryPreview() {
           <GalleryImage
             src={left.src}
             alt={left.alt}
-            className="relative h-[400px] md:h-auto"
+            className="h-[400px] md:h-full"
           />
 
           {/* Right column: two equal rows */}
@@ -61,7 +61,7 @@ export default function GalleryPreview() {
             <GalleryImage
               src={top.src}
               alt={top.alt}
-              className="relative min-h-0"
+              className="h-full"
             />
 
             {/* Bottom row: two squares */}
@@ -69,12 +69,12 @@ export default function GalleryPreview() {
               <GalleryImage
                 src={bottomLeft.src}
                 alt={bottomLeft.alt}
-                className="relative min-h-0"
+                className="h-full"
               />
               <GalleryImage
                 src={bottomRight.src}
                 alt={bottomRight.alt}
-                className="relative min-h-0"
+                className="h-full"
               />
             </div>
           </div>

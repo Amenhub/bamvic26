@@ -5,7 +5,7 @@ import Countdown from "../components/sections/Countdown";
 import EventsPreview from "../components/sections/EventsPreview";
 import StoryPreview from "../components/sections/StoryPreview";
 import GalleryPreview from "../components/sections/GalleryPreview";
-import DonationCTA from "../components/sections/DOnationCTA";
+import DonationCTA from "../components/sections/DonationCTA";
 
 export default function Home() {
   return (

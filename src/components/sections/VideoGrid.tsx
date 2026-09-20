@@ -1,0 +1,73 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import type { VideoItem } from "../../data/gallery";
+import VideoModal from "../ui/VideoModal";
+
+export default function VideoGrid({ videos }: { videos: VideoItem[] }) {
+  const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
+
+  return (
+    <section className="bg-white py-20 md:py-32 px-5 md:px-16">
+      <div className="max-w-[1200px] mx-auto">
+        {videos.length === 0 ? (
+          <p className="text-center text-brown/50 italic font-serif text-lg py-20">
+            No videos yet. Check back soon.
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {videos.map((video, index) => (
+              <motion.button
+                key={video.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                onClick={() => setActiveVideo(video)}
+                className="group relative overflow-hidden rounded-2xl aspect-video text-left"
+              >
+                {/* Thumbnail */}
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-brown-dark/40 group-hover:bg-brown-dark/60 transition-colors duration-300" />
+
+                {/* Play button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/90 group-hover:bg-orange group-hover:scale-110 flex items-center justify-center transition-all duration-300">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="text-brown group-hover:text-white ml-1 transition-colors"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Info at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 bg-gradient-to-t from-brown-dark/90 to-transparent">
+                  <h3 className="font-serif text-lg md:text-xl text-white leading-tight">
+                    {video.title}
+                  </h3>
+                  {video.duration && (
+                    <p className="text-xs uppercase tracking-[0.3em] text-white/70 mt-2">
+                      {video.duration}
+                    </p>
+                  )}
+                </div>
+              </motion.button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <VideoModal video={activeVideo} onClose={() => setActiveVideo(null)} />
+    </section>
+  );
+}
