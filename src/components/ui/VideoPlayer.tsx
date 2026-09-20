@@ -1,16 +1,67 @@
+import { useEffect, useRef } from "react";
+import Hls from "hls.js";
 import type { VideoItem } from "../../data/gallery";
 
 const CLOUDINARY_CLOUD_NAME = "dskyahrkd";
 
 export default function VideoPlayer({ video }: { video: VideoItem }) {
-  const hasPlayableVideo = Boolean(video.videoId && video.videoId !== "YOUR_YOUTUBE_VIDEO_ID");
+  const videoRef = useRef<HTMLVideoElement>(null);
 
+  const hasPlayableVideo = Boolean(
+    video.videoId && video.videoId !== "YOUR_YOUTUBE_VIDEO_ID"
+  );
+
+  const isPortrait =
+    video.title.toLowerCase().includes("portrait") ||
+    video.title.toLowerCase().includes("story");
+
+  // Detect HLS: either flagged as live, or the id ends with _hls
+  const isHls = video.isLive === true || video.videoId.endsWith("_hls");
+
+  // Build the Cloudinary URL — .m3u8 for HLS, .mp4 otherwise
+  const cloudinaryUrl = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/video/live/${video.videoId}${
+    isHls ? ".m3u8" : ".mp4"
+  }`;
+
+  // Wire up hls.js (or native playback for Safari)
+  useEffect(() => {
+    if (video.source !== "cloudinary" || !isHls) return;
+
+    const el = videoRef.current;
+    if (!el) return;
+
+    // Safari & iOS can play HLS natively
+    if (el.canPlayType("application/vnd.apple.mpegurl")) {
+      el.src = cloudinaryUrl;
+      return;
+    }
+
+    // Everywhere else: use hls.js
+    if (Hls.isSupported()) {
+      const hls = new Hls({
+        // Sensible defaults for live streams
+        lowLatencyMode: true,
+        enableWorker: true,
+      });
+      hls.loadSource(cloudinaryUrl);
+      hls.attachMedia(el);
+      return () => hls.destroy();
+    }
+  }, [cloudinaryUrl, isHls, video.source]);
+
+  // Empty state
   if (!hasPlayableVideo) {
     return (
       <div className="relative w-full aspect-video overflow-hidden rounded-2xl bg-[#f5efe8] flex items-center justify-center text-brown">
         <div className="text-center px-6">
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
               <path d="M8 5v14l11-7z" />
             </svg>
           </div>
@@ -23,11 +74,14 @@ export default function VideoPlayer({ video }: { video: VideoItem }) {
     );
   }
 
-  const isPortrait = video.title.toLowerCase().includes("portrait") || video.title.toLowerCase().includes("story");
-
+  // YouTube
   if (video.source === "youtube") {
     return (
-      <div className={`relative mx-auto overflow-hidden rounded-2xl bg-black ${isPortrait ? "h-[78vh] w-auto max-w-[420px]" : "w-full aspect-video"}`}>
+      <div
+        className={`relative mx-auto overflow-hidden rounded-2xl bg-black ${
+          isPortrait ? "h-[78vh] w-auto max-w-[420px]" : "w-full aspect-video"
+        }`}
+      >
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1&rel=0`}
           title={video.title}
@@ -39,14 +93,34 @@ export default function VideoPlayer({ video }: { video: VideoItem }) {
     );
   }
 
+  // Cloudinary — MP4 (regular video)
+  if (!isHls) {
+    return (
+      <div
+        className={`relative mx-auto overflow-hidden rounded-2xl bg-black ${
+          isPortrait ? "h-[78vh] w-auto max-w-[420px]" : "w-full aspect-video"
+        }`}
+      >
+        <video
+          src={cloudinaryUrl}
+          controls
+          autoPlay
+          playsInline
+          className="h-full w-full object-cover"
+        />
+      </div>
+    );
+  }
+
+  // Cloudinary — HLS (live stream)
   return (
-    <div className={`relative mx-auto overflow-hidden rounded-2xl bg-black ${isPortrait ? "h-[78vh] w-auto max-w-[420px]" : "w-full aspect-video"}`}>
+    <div className="relative mx-auto w-full aspect-video overflow-hidden rounded-2xl bg-black">
       <video
-        src={`https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/video/upload/${video.videoId}.mp4`}
+        ref={videoRef}
         controls
         autoPlay
         playsInline
-        className="h-full w-full object-cover"
+        className="h-full w-full"
       />
     </div>
   );
