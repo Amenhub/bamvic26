@@ -35,7 +35,7 @@ export default function StoryPreview() {
               meeting point.&rdquo;
             </p>
             <p>
-              The story finally began in Ilorin, in a season neither of them
+              The story finally began in Ilorin, in a season neither of us
               knew would become the beginning of something so beautiful.
             </p>
           </div>
