@@ -23,28 +23,30 @@ export default function VideoPlayer({ video }: { video: VideoItem }) {
     );
   }
 
+  const isPortrait = video.title.toLowerCase().includes("portrait") || video.title.toLowerCase().includes("story");
+
   if (video.source === "youtube") {
     return (
-      <div className="relative w-full aspect-video bg-black">
+      <div className={`relative mx-auto overflow-hidden rounded-2xl bg-black ${isPortrait ? "h-[78vh] w-auto max-w-[420px]" : "w-full aspect-video"}`}>
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1&rel=0`}
           title={video.title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-          className="absolute inset-0 w-full h-full"
+          className="h-full w-full"
         />
       </div>
     );
   }
 
   return (
-    <div className="relative w-full aspect-video bg-black">
+    <div className={`relative mx-auto overflow-hidden rounded-2xl bg-black ${isPortrait ? "h-[78vh] w-auto max-w-[420px]" : "w-full aspect-video"}`}>
       <video
         src={`https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/video/upload/${video.videoId}.mp4`}
         controls
         autoPlay
         playsInline
-        className="absolute inset-0 w-full h-full"
+        className="h-full w-full object-cover"
       />
     </div>
   );

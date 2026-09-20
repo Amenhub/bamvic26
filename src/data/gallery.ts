@@ -97,18 +97,16 @@ export type VideoItem = {
 export const videos: VideoItem[] = [
   {
     id: "vid-1",
-    title: "Our Pre-Wedding Story",
+    title: "Our Pre-Wedding Story (version 1)",
     thumbnail: "https://res.cloudinary.com/dskyahrkd/image/upload/v1788439240/DSC_1239_pgm5za.jpg",
     source: "cloudinary",
-    videoId: "",
-    duration: "Coming soon",
+    videoId: "v1789910638/Bamifeiiv_vkyg2m",
   },
   {
     id: "vid-2",
-    title: "The Proposal",
-    thumbnail: "https://res.cloudinary.com/dskyahrkd/image/upload/v1788439195/DSC_1076_hx7lam.jpg",
+    title: "Our Pre-Wedding Story (version 2)",
+    thumbnail: "https://res.cloudinary.com/dskyahrkd/image/upload/v1788439195/DSC_1087_grrgjq.jpg",
     source: "cloudinary",
-    videoId: "",
-    duration: "Coming soon",
+    videoId: "Bamitifeaiv2_ihgn9k",
   },
 ];
