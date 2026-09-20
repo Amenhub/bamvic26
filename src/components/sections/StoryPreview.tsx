@@ -9,7 +9,7 @@ export default function StoryPreview() {
           <div className="rounded-[32px] border border-beige/60 p-3 md:p-4">
             <img
               src="https://res.cloudinary.com/dskyahrkd/image/upload/v1789758660/eh_q6jqwh.jpg"
-              alt="Ayobami and Israel"
+              alt="Ayobami and Victor"
               className="w-full h-[400px] md:h-[520px] lg:h-[560px] object-cover rounded-[24px]"
             />
           </div>

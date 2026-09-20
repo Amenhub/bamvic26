@@ -21,14 +21,14 @@ export default function Hero() {
 
         {/* Couple names */}
         <h1 className="font-script text-6xl md:text-8xl lg:text-9xl text-white leading-[0.95] drop-shadow-lg">
-          Ayobami <span className="text-orange">&amp;</span> Israel
+          Ayobami <span className="text-orange">&amp;</span> Victor
         </h1>
 
         {/* Date + Location */}
         <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6 text-[10px] md:text-xs uppercase tracking-[0.3em] text-beige">
           <span>7 November 2026</span>
           <span className="w-1.5 h-1.5 rounded-full bg-orange inline-block" />
-          <span>Igboole, Ekiti State</span>
+          <span>Igbole, Ekiti State</span>
         </div>
 
         {/* Buttons */}

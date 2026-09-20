@@ -26,7 +26,7 @@ export default function Invite() {
         </p>
 
         <h3 className="font-serif text-2xl md:text-3xl text-brown">
-          Ayobami &amp; Israel
+          Ayobami &amp; Victor
         </h3>
       </div>
     </section>

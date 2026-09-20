@@ -13,14 +13,14 @@ export const events: WeddingEvent[] = [
     title: "Engagement",
     date: "7 November 2026",
     time: "7:00 AM",
-    venue: "Behind Igboole Community Nursery and Primary School, Osi Road, Igboole, Ekiti.",
+    venue: "Behind Igbole Community Nursery and Primary School, Osi Road, Igbole, Ekiti.",
   },
   {
     eyebrow: "The Holy Matrimony",
     title: "Wedding Service",
     date: "7 November 2026",
     time: "10:00 AM",
-    venue: "Our Savior's Anglican Church, Igboole, Ekiti.",
+    venue: "Our Savior's Anglican Church, Igbole, Ekiti.",
     featured: true,
   },
   {
@@ -28,6 +28,6 @@ export const events: WeddingEvent[] = [
     title: "Reception",
     date: "7 November 2026",
     time: "12:00 PM",
-    venue: "Igboole Ekiti Town hall",
+    venue: "Igbole Ekiti Town hall",
   },
 ];

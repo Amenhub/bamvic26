@@ -17,13 +17,13 @@ export const galleryPreview: GalleryItem[] = [
   {
     id: "preview-1",
     src: "https://res.cloudinary.com/dskyahrkd/image/upload/v1788439191/DSC_1046_l0tmfp.jpg",
-    alt: "Ayobami and Israel walking hand in hand",
+    alt: "Ayobami and Victor walking hand in hand",
     category: "pre-wedding",
   },
   {
     id: "preview-2",
     src: "https://res.cloudinary.com/dskyahrkd/image/upload/v1788439195/DSC_1076_hx7lam.jpg",
-    alt: "Ayobami and Israel laughing together",
+    alt: "Ayobami and Victor laughing together",
     category: "pre-wedding",
   },
   {
@@ -35,7 +35,7 @@ export const galleryPreview: GalleryItem[] = [
   {
     id: "preview-4",
     src: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789760413/IMG_4271_1_k8lmor.png",
-    alt: "Ayobami and Israel portrait",
+    alt: "Ayobami and Victor portrait",
     category: "pre-wedding",
   },
 ];
@@ -67,9 +67,7 @@ export const galleryItems: GalleryItem[] = [
   { id: "pw-22", src: "https://res.cloudinary.com/dskyahrkd/image/upload/v1788439231/DSC_1215_g2mxnc.jpg", alt: "Pre-wedding 22", category: "pre-wedding" },
   { id: "pw-23", src: "https://res.cloudinary.com/dskyahrkd/image/upload/v1788439226/DSC_1201_vwyzm1.jpg", alt: "Pre-wedding 23", category: "pre-wedding" },
   { id: "pw-24", src: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789758660/eh_q6jqwh.jpg", alt: "Pre-wedding 24", category: "pre-wedding" },
-  { id: "pw-25", src: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789909837/WhatsApp_Image_2026-09-20_at_14.02.38_3_ss4t9j.jpg", alt: "Pre-wedding 25", category: "pre-wedding" },
-  { id: "pw-26", src: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789909842/WhatsApp_Image_2026-09-20_at_14.02.39_2_ojkyic.jpg", alt: "Pre-wedding 26", category: "pre-wedding" },
-  { id: "pw-27", src: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789909819/WhatsApp_Image_2026-09-20_at_14.02.35_2_vxcjfl.jpg", alt: "Pre-wedding 27", category: "pre-wedding" },
+  
 /* Traditional
   { id: "tr-1", src: "/images/gallery/traditional/1.jpg", alt: "Traditional 1", category: "traditional" },
   { id: "tr-2", src: "/images/gallery/traditional/2.jpg", alt: "Traditional 2", category: "traditional" },

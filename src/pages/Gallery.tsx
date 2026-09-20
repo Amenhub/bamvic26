@@ -13,7 +13,7 @@ export default function Gallery() {
       <PageHero
         eyebrow="Capturing the Love"
         title="Our Gallery"
-        subtitle="Ayobami & Israel"
+        subtitle="Ayobami & Victor"
         image="https://res.cloudinary.com/dskyahrkd/image/upload/v1788439240/DSC_1239_pgm5za.jpg"
       />
 

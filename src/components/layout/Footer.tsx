@@ -16,12 +16,12 @@ export default function Footer() {
 
         {/* Couple names */}
         <h2 className="font-serif text-4xl md:text-6xl text-beige text-center tracking-wide">
-          Ayobami &amp; Israel
+          Ayobami &amp; Victor
         </h2>
 
         {/* Date + Location */}
         <p className="text-[10px] md:text-xs uppercase tracking-[0.35em] text-beige/70 text-center">
-          November 7, 2026 &nbsp;•&nbsp; Igboole, Ekiti State
+          November 7, 2026 &nbsp;•&nbsp; Igbole, Ekiti State
         </p>
 
         {/* Hashtag */}
