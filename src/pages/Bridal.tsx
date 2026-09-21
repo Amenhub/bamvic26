@@ -1,4 +1,4 @@
-import { bridalTrain, groomMen } from "../data/programme";
+import { weddingParty, type PartyMember } from "../data/programme";
 
 type BridalCard = {
   name: string;
@@ -6,36 +6,50 @@ type BridalCard = {
   image: string;
 };
 
-const parents: BridalCard[] = [
-  { name: "Bride's Father", role: "Parents", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" },
-  { name: "Bride's Mother", role: "Parents", image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80" },
-  { name: "Groom's Father", role: "Parents", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80" },
-  { name: "Groom's Mother", role: "Parents", image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" },
-];
-
-const bestPair: BridalCard[] = [
-  { name: groomMen.bestMan, role: "Best Man", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" },
-  { name: bridalTrain.chiefBrideMaid, role: "Best Lady", image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" },
-  { name: bridalTrain.littleBride, role: "Little Bride", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80" },
-  { name: "Little Bride II", role: "Little Bride", image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80" },
-];
-
-const bridalParty: BridalCard[] = bridalTrain.brideMaids.map((name) => ({
-  name,
-  role: "Bridesmaid",
-  image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80",
+// Build the arrays from the central data
+const parents: BridalCard[] = weddingParty.parents.map((p) => ({
+  ...p,
+  role: "Parents",
 }));
 
+const bestPair: BridalCard[] = [
+  {
+    name: weddingParty.groomMen.bestMan.name,
+    image: weddingParty.groomMen.bestMan.image,
+    role: "Best Man",
+  },
+  {
+    name: weddingParty.bridalTrain.chiefBrideMaid.name,
+    image: weddingParty.bridalTrain.chiefBrideMaid.image,
+    role: "Best Lady",
+  },
+  {
+    name: weddingParty.bridalTrain.littleBride.name,
+    image: weddingParty.bridalTrain.littleBride.image,
+    role: "Little Bride",
+  },
+  {
+    name: weddingParty.bridalTrain.ringBearer.name,
+    image: weddingParty.bridalTrain.ringBearer.image,
+    role: "Ring Bearer",
+  },
+];
+
+const bridalParty: BridalCard[] = weddingParty.bridalTrain.brideMaids.map(
+  (member: PartyMember) => ({
+    ...member,
+    role: "Bridesmaid",
+  })
+);
+
 const groomsParty: BridalCard[] = [
-  ...groomMen.menInUniform.map((name) => ({
-    name,
+  ...weddingParty.groomMen.menInUniform.map((member) => ({
+    ...member,
     role: "Men in Uniform",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
   })),
-  ...groomMen.groomMen.map((name) => ({
-    name,
+  ...weddingParty.groomMen.groomMen.map((member) => ({
+    ...member,
     role: "Groom's Man",
-    image: "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80",
   })),
 ];
 
@@ -43,24 +57,25 @@ function PartyGrid({ members, title }: { members: BridalCard[]; title: string })
   return (
     <section className="rounded-[28px] border border-brown/10 bg-white p-5 shadow-[0_25px_60px_rgba(58,42,25,0.04)] md:p-8">
       <div className="mb-8 text-center md:text-left">
-        <p className="text-[10px] font-bold uppercase tracking-[0.45em] text-orange">
-          The People
-        </p>
         <h2 className="mt-3 font-serif text-3xl text-brown md:text-5xl">
-          {title}
+          Our {title}
         </h2>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
         {members.map((member) => (
-          <article
+          <a
             key={`${title}-${member.name}`}
-            className="overflow-hidden rounded-[24px] border border-brown/10 bg-[#f9f5f0]"
+            href={member.image}
+            target="_blank"
+            rel="noreferrer"
+            className="group block overflow-hidden rounded-[24px] border border-brown/10 bg-[#f9f5f0] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(58,42,25,0.08)]"
+            aria-label={`View larger image of ${member.name}`}
           >
             <img
               src={member.image}
               alt={member.name}
-              className="h-[420px] w-full object-cover object-center"
+              className="h-[420px] w-full object-cover object-center transition duration-300 group-hover:scale-[1.02]"
             />
             <div className="space-y-2 p-4 text-center">
               <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-orange">
@@ -68,7 +83,7 @@ function PartyGrid({ members, title }: { members: BridalCard[]; title: string })
               </p>
               <p className="font-serif text-xl text-brown">{member.name}</p>
             </div>
-          </article>
+          </a>
         ))}
       </div>
     </section>
@@ -80,9 +95,6 @@ export default function Bridal() {
     <main className="bg-[#f8f5f1] px-4 py-10 md:px-8 md:py-16">
       <div className="mx-auto max-w-[1500px] space-y-10">
         <header className="text-center">
-          <p className="text-[10px] font-bold uppercase tracking-[0.45em] text-orange">
-            Our Celebration
-          </p>
           <h1 className="mt-4 font-serif text-4xl text-brown md:text-6xl">
             Our Circle
           </h1>

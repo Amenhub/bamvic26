@@ -22,6 +22,11 @@ export type TeamMember = {
   name: string;
 };
 
+export type PartyMember = {
+  name: string;
+  image: string;
+};
+
 // ============================================================
 // OFFICIATING TEAM
 // ============================================================
@@ -42,36 +47,102 @@ export const churchOfficers = [
 // ============================================================
 // WEDDING PARTY
 // ============================================================
-export const bridalTrain = {
-  chiefBrideMaid: "Oluwapelumi Racheal Oguntunde",
-  littleBride: "Ayomide Mercy",
-  brideMaids: [
-    "Adaralegbe Oluwafunmilayo",
-    "Agboola Esther",
-    "Akinloye Ifeoluwa",
-    "Ajibi Oluwapelumi",
-    "Adedayo Mololuwa Mary",
-    "Oyebode Temitope",
-  ],
+export type WeddingParty = {
+  parents: PartyMember[];
+  bestPair: PartyMember[];
+  bridalTrain: {
+    chiefBrideMaid: PartyMember;
+    littleBride: PartyMember;
+    ringBearer: PartyMember;
+    brideMaids: PartyMember[];
+  };
+  groomMen: {
+    bestMan: PartyMember;
+    menInUniform: PartyMember[];
+    groomMen: PartyMember[];
+  };
 };
 
-export const groomMen = {
-  bestMan: "Dickson Ayinde",
-  menInUniform: [
-    "Femi-Adesina Ajolayo",
-    "Stephen Olamide",
-    "Ibiyomi Ayomide",
-    "Enoch Ojo",
+export const weddingParty: WeddingParty = {
+  parents: [
+    {
+      name: "Bride's Father",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999218/Dadd_Ayo_wfeqac.png",
+    },
+    {
+      name: "Bride's Mother",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999217/MUm_Ayo_kecm8a.jpg",
+    },
+    {
+      name: "Groom's Father",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790000593/dad_vaksdp.png",
+    },
+    {
+      name: "Groom's Mother",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790000593/mum_tugssx.png",
+    },
   ],
-  groomMen: [
-    "Oni Ifeoluwa",
-    "Olayinka Ojo",
-    "Ayomikun Moses",
-    "Bamigbade Aderinto",
-    "Bada Babalola",
-    "Oluwapamilerinayo Feranni",
-    "Damilare Ogundiran",
+
+  bestPair: [
+    {
+      name: "Dickson Ayinde",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999217/Dickson2_th3c8p.jpg",
+    },
+    {
+      name: "OGUNTADE Oluwapelumi Racheal",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790001952/Racheal_hskqnp.png",
+    },
+    {
+      name: "Ayomide Mercy",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790001952/AyomideG_qmc2q8.png",
+    },
+    {
+      name: "Akinwunmi Fogofoluwa Maxwell",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999218/WhatsApp_Image_2026-09-18_at_10.08.14_mhg6e7.jpg",
+    },
   ],
+
+  bridalTrain: {
+    chiefBrideMaid: {
+      name: "Oluwapelumi Racheal Oguntunde",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790001952/Racheal_hskqnp.png",
+    },
+    littleBride: {
+      name: "Ayomide Mercy",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790001952/AyomideG_qmc2q8.png",
+    },
+    ringBearer: {
+      name: "Akinwunmi Fogofoluwa Maxwell",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999218/WhatsApp_Image_2026-09-18_at_10.08.14_mhg6e7.jpg",
+    },
+    brideMaids: [
+      { name: "Adaralegbe Oluwafunmilayo", image: "" },
+      { name: "AGBOOLA Esther",            image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999219/ESTHER_au5lzc.png" },
+      { name: "AKINLOYE Ifeolowa",         image: "" },
+      { name: "AJIBI Oluwapelumi",         image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997336/OLUWAPELUMI_lx56es.png" },
+      { name: "ADEBAYO Mololuwa Mary",     image: "" },
+      { name: "OYEBODE Temitope",          image: "" },
+    ],
+  },
+
+  groomMen: {
+    bestMan: {
+      name: "AYINDE Dickson",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999217/Dickson2_th3c8p.jpg",
+    },
+    menInUniform: [
+      { name: "FEMI-ADESINA Ajolayo", image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997334/Ajolayo_vgwbts.jpg" },
+      { name: "IBIYOMI Stephen Olamide",      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997337/Stephen_zbj0iw.jpg" },
+      { name: "OJO Ayomide Enoch",            image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997335/Ayomide_r2byiv.jpg" },
+    ],
+    groomMen: [
+      { name: "ONI Ifeoluwa Olayinka",   image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997336/IFEoluwa_cxpq7h.jpg" },
+      { name: "OJO Ayomikun Moses",      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997334/Ayomikun_v7qonh.jpg" },
+      { name: "BAMIGBADE Aderinto",      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790004419/Aderinto_hinjgg.jpg" },
+      { name: "BADA Babalola Oluwapamilerinayo",    image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997335/Pamilerin_zwpppy.jpg" },
+      { name: "ZOGUNDIRAN Damilare Feranni",          image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997336/Ferami_qedzi1.jpg" },
+    ],
+  },
 };
 
 // ============================================================
@@ -124,7 +195,7 @@ export const receptionOrder: ProgrammeItem[] = [
 
 export const churchOrderEnglish: ProgrammeItem[] = [
   {
-    id: "processional",
+    id: "hymn-1",
     title: "Processional Hymn",
     note: "Praise my soul the King of Heaven",
   },
@@ -144,7 +215,7 @@ export const churchOrderEnglish: ProgrammeItem[] = [
         text:
           "The Scriptures teach us that marriage is a gift of God in creation and a means of His grace, a holy mystery in which man and woman become one flesh. It is God's purpose that as husband and wife give themselves to each other in love throughout their lives, they shall be united in their love as Christ is united with His Church.",
       },
-      { type: "yoruba", text: "Iwe Mimo ko wa pe ibukun Olorun ni igbeyawo, ati pe on ni a n jo ni ife, ni isokan, ni asiko gbogbo aye won." },
+      { type: "paragraph", text: "Lastly, it is given that they may have children. And be blessed in caring for them and bringing them in accordance with God's will to His praise and glory" },
       {
         type: "paragraph",
         text:

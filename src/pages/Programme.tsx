@@ -24,7 +24,7 @@ export default function Programme() {
       />
     
       <ProgrammeSection
-        eyebrow="Our Saviour's Anglican Church, Igboole-Ekiti"
+        eyebrow="Our Saviour's Anglican Church, igbole-Ekiti"
         title="Officiating Ministers"
         background="ivory"
       >
