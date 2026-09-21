@@ -114,13 +114,13 @@ export default function VideoPlayer({ video }: { video: VideoItem }) {
 
   // Cloudinary — HLS (live stream)
   return (
-    <div className="relative mx-auto w-full aspect-video overflow-hidden rounded-2xl bg-black">
+    <div className="relative mx-auto w-full aspect-[16/9] overflow-hidden bg-black md:aspect-[16/8.5]">
       <video
         ref={videoRef}
         controls
         autoPlay
         playsInline
-        className="h-full w-full"
+        className="h-full w-full object-cover"
       />
     </div>
   );

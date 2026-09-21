@@ -1,0 +1,403 @@
+export type ContentBlock =
+  | { type: "paragraph" | "yoruba" | "note" | "verse"; text: string }
+  | { type: "dialogue"; speaker: string; text: string };
+
+export type Hymn = {
+  id: string;
+  title: string;
+  yorubaTitle?: string;
+  verses: string[];
+  yorubaVerses?: string[];
+};
+
+export type ProgrammeItem = {
+  id: string;
+  title: string;
+  note?: string;
+  content?: ContentBlock[];
+};
+
+export type TeamMember = {
+  role: string;
+  name: string;
+};
+
+// ============================================================
+// OFFICIATING TEAM
+// ============================================================
+export const officiatingTeam = [
+  { role: "Vicar", name: "The Rev'd Sam. Ayo Akinwunmi" },
+  { role: "Archdeacon of Osi Archdeaconry", name: "The Ven. Favour O. Olumakinde" },
+  { role: "Bishop Diocese of Ekiti Oke (DEO)", name: "The Rt. Rev. Dr. Julius Oyetunde Oyediran" },
+]
+
+export const churchOfficers = [
+  { role: "Organist", name: "Mr Samuel Oluwole" },
+  { role: "Pastor's Warden", name: "Mrs E.B. Lawal" },
+  { role: "People's Warden", name: "Mr Abraham Fasae" },
+  { role: "Verger 1", name: "Mr Ilesami Omoniyi" },
+  { role: "Verger 2", name: "Mr Sunday Oluyede" },
+];
+
+// ============================================================
+// WEDDING PARTY
+// ============================================================
+export const bridalTrain = {
+  chiefBrideMaid: "Oluwapelumi Racheal Oguntunde",
+  littleBride: "Ayomide Mercy",
+  brideMaids: [
+    "Adaralegbe Oluwafunmilayo",
+    "Agboola Esther",
+    "Akinloye Ifeoluwa",
+    "Ajibi Oluwapelumi",
+    "Adedayo Mololuwa Mary",
+    "Oyebode Temitope",
+  ],
+};
+
+export const groomMen = {
+  bestMan: "Dickson Ayinde",
+  menInUniform: [
+    "Femi-Adesina Ajolayo",
+    "Stephen Olamide",
+    "Ibiyomi Ayomide",
+    "Enoch Ojo",
+  ],
+  groomMen: [
+    "Oni Ifeoluwa",
+    "Olayinka Ojo",
+    "Ayomikun Moses",
+    "Bamigbade Aderinto",
+    "Bada Babalola",
+    "Oluwapamilerinayo Feranni",
+    "Damilare Ogundiran",
+  ],
+};
+
+// ============================================================
+// ORDER OF PHOTOGRAPHY
+// ============================================================
+export const photographyOrder: string[] = [
+  "Officiating Ministers",
+  "Bridal Train",
+  "Bride's Parents",
+  "Groom's Parents",
+  "Both Parents",
+  "Bride's family",
+  "Groom's family",
+  "Both families",
+  "Bride's friends",
+  "Groom's friends",
+  "Both friends",
+  "New Heritage Baptist Church, Ilorin",
+  "Kings and Queens",
+  "Amazing Sisters",
+  "Ladoke Akintola University of Technology (LAUTECH) Staff",
+  "Bride and Chief Bride's Maid alone",
+  "Groom and Best Man alone",
+  "Chief Bride's Maid and Best Man alone",
+  "Couple with Chief Bride's Maid and Best Man",
+  "Couple alone",
+  "Bride alone",
+  "Groom alone",
+];
+
+// ============================================================
+// RECEPTION ORDER
+// ============================================================
+export const receptionOrder: ProgrammeItem[] = [
+  { id: "arrival-of-guests",          title: "Arrival of Guests" },
+  { id: "to-the-high-table",          title: "To the High Table" },
+  { id: "couples-entrance",           title: "Couples Entrance" },
+  { id: "opening-prayer",             title: "Opening Prayer" },
+  { id: "chairmans-opening-remarks",  title: "Chairman's Opening Remarks" },
+  { id: "cutting-of-cake",            title: "Cutting of Cake" },
+  { id: "first-assignment",           title: "First Assignment" },
+  { id: "toast-to-the-couple",        title: "Toast to the Couple" },
+  { id: "couple-dance-with-parents",  title: "Couple dance with Parents" },
+  { id: "dance-by-latest-couple",     title: "Dance by the latest Couple" },
+  { id: "presentation-of-gifts",      title: "Presentation of Gifts" },
+  { id: "vote-of-thanks",             title: "Vote of Thanks" },
+  { id: "closing-prayer",             title: "Closing Prayer" },
+  { id: "dance-dance-dance",          title: "Dance! Dance!! Dance!!!" },
+];
+
+export const churchOrderEnglish: ProgrammeItem[] = [
+  {
+    id: "processional",
+    title: "Processional Hymn",
+    note: "Praise my soul the King of Heaven",
+  },
+  {
+    id: "introduction",
+    title: "Introduction",
+    content: [
+      { type: "note", text: "The congregation remains standing as the Bride and Groom stand before the Priest." },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text:
+          "Dear beloved, we have come together in the presence of God to witness and to celebrate the marriage of AYOBAMI OLAJUMOKE and ISRAEL VICTOR, to ask His blessings on them, and to share in their joy. Our Lord Jesus Christ was Himself a guest at a wedding in Cana of Galilee and blessed this way of life, and through His Spirit, He is with us now.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "The Scriptures teach us that marriage is a gift of God in creation and a means of His grace, a holy mystery in which man and woman become one flesh. It is God's purpose that as husband and wife give themselves to each other in love throughout their lives, they shall be united in their love as Christ is united with His Church.",
+      },
+      { type: "yoruba", text: "Iwe Mimo ko wa pe ibukun Olorun ni igbeyawo, ati pe on ni a n jo ni ife, ni isokan, ni asiko gbogbo aye won." },
+      {
+        type: "paragraph",
+        text:
+          "Marriage is given primarily so that husband and wife may comfort and help each other, living faithfully together in need and in plenty, in sorrow and in joy. It is also given that with delight and tenderness, they may know each other in love and, through the joy of their union, may strengthen the union of their hearts and lives.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "In marriage, husband and wife belong to one another and are linked to each other's families as they begin a new life together in the community. This is the way of life that all should honour. And it must not be undertaken carelessly, lightly, or selfishly. But reverently, responsibly, and after serious thought. Into this way of life, OLAJUMOKE and ISRAEL VICTOR come to be joined.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "If any of you can show any just cause why they may not be lawfully married, you must now declare it — now or forever hold your peace.",
+      },
+      { type: "note", text: "If there is no impediment declared, the Minister continues." },
+    ],
+  },
+  {
+    id: "declaration",
+    title: "Declaration",
+    content: [
+      { type: "note", text: "The Priest says to the couple." },
+      {
+        type: "paragraph",
+        text:
+          "AYOBAMI OLAJUMOKE and ISRAEL VICTOR, the vows you are about to make are to be made in the name of God, and I charge you both, as you will answer before God, who is the judge of all and who knows all the secrets of our hearts, that if either of you knows a reason why you may not be lawfully married, you must declare it now.",
+      },
+      { type: "note", text: "If no impediment is declared, the Minister continues." },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text: "ISRAEL VICTOR, of your own free choice, will you take AYOBAMI OLAJUMOKE to be your wife?",
+      },
+      { type: "dialogue", speaker: "Groom", text: "I will." },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text:
+          "Will you love her, comfort her, honour and protect her, in sickness and in health, in poverty and prosperity, and, forsaking all others, be faithful to her as long as you both live?",
+      },
+      { type: "dialogue", speaker: "Groom", text: "I will." },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text: "AYOBAMI OLAJUMOKE, of your own free choice, will you take ISRAEL VICTOR to be your husband?",
+      },
+      { type: "dialogue", speaker: "Bride", text: "I will." },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text:
+          "Will you love him, comfort him, honour and protect him, in sickness and in health, in poverty and prosperity, and, forsaking all others, be faithful to him as long as you both live?",
+      },
+      { type: "dialogue", speaker: "Bride", text: "I will." },
+    ],
+  },
+  {
+    id: "hymn-2",
+    title: "Hymn 2",
+    note: "The Voice that Breathed O'er Eden",
+  },
+  {
+    id: "marriage",
+    title: "The Marriage",
+    content: [
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text: "Who gives this woman to be married to this man?",
+      },
+      { type: "dialogue", speaker: "Father", text: "I do." },
+      {
+        type: "note",
+        text: "The Priest, receiving the bride from the hand of her father, causes the man to take the woman by his right hand and face her. The Bridegroom says:",
+      },
+      {
+        type: "dialogue",
+        speaker: "Groom",
+        text:
+          "I, ISRAEL VICTOR, take you, AYOBAMI OLAJUMOKE, to be my wife, to have and to hold, from this day forward, for better for worse, for richer for poorer, in sickness and in health, to love and to cherish, until we are parted by death, according to God's holy law. This is my solemn vow.",
+      },
+      {
+        type: "note",
+        text: "They loose hands. The Bride takes the Bridegroom by the right hand and says:",
+      },
+      {
+        type: "dialogue",
+        speaker: "Bride",
+        text:
+          "I, AYOBAMI OLAJUMOKE, take you, ISRAEL VICTOR, to be my husband, to have and to hold, from this day forward, for better for worse, for richer for poorer, in sickness and in health, to love and to cherish, until we are parted by death, according to God's holy law. This is my solemn vow.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text: "And what token do you share to represent your love and commitment to each other?",
+      },
+      { type: "note", text: "The Priest receives the ring, holds it up, and says:" },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text:
+          "The ring is a symbol of wholeness and perfection. It is made of gold, which is a precious and durable metal. What better representation of your feelings for each other?",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Heavenly Father, by your blessing, let these rings be to AYOBAMI OLAJUMOKE and ISRAEL VICTOR a symbol of an unending love and faithfulness, to remind them of the vow and covenant which they have made this day, through Jesus Christ our Lord.",
+      },
+      {
+        type: "note",
+        text: "The Bridegroom places the ring on the fourth finger of the Bride's left hand, and holding it there, says:",
+      },
+      {
+        type: "dialogue",
+        speaker: "Groom",
+        text:
+          "I give you this ring as a sign of our marriage; with my body I honour you, all that I am, I give to you, and all that I have I share with you, within the love of God the Father, Son, and Holy Spirit. Amen.",
+      },
+      {
+        type: "note",
+        text: "The Bride places the ring on the fourth finger of the Bridegroom's left hand, and holding it there, says:",
+      },
+      {
+        type: "dialogue",
+        speaker: "Bride",
+        text:
+          "I give you this ring as a sign of our marriage; with my body I honour you, all that I am, I give to you, and all that I have I share with you, within the love of God the Father, Son, and Holy Spirit. Amen.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text:
+          "Now that AYOBAMI OLAJUMOKE and ISRAEL VICTOR have given their consent and made their vows to each other before God and this congregation, with the joining of hands and the giving and receiving of rings, I declare that they are husband and wife in the name of the Father, and of the Son, and of the Holy Spirit. Amen.",
+      },
+      { type: "paragraph", text: "Those whom God has joined together, let no man put asunder." },
+      { type: "note", text: "The Priest blesses them." },
+      {
+        type: "paragraph",
+        text:
+          "God the Father, God the Son, God the Holy Spirit, bless, preserve and keep you. The Lord pour upon you the riches of His grace, that you may faithfully live together and receive the blessings of eternal life, through Jesus Christ our Lord. Amen.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text: "As AYOBAMI OLAJUMOKE and ISRAEL VICTOR enter a new life together, will you, their parents…",
+      },
+      { type: "dialogue", speaker: "Congregation", text: "We shall." },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text:
+          "You, as friends and family, have come to witness this exchange of vows. Will you, with all your power, support this marriage now and in the years ahead?",
+      },
+      { type: "dialogue", speaker: "The People", text: "We shall." },
+    ],
+  },
+  {
+    id: "acclamation",
+    title: "The Acclamation",
+    content: [
+      { type: "note", text: "The Bridegroom's mother comes forward." },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text:
+          "In the name of God and in the presence of His congregation, we hand over former MISS AYOBAMI OLAJUMOKE — now MRS. AYOBAMI OLAJUMOKE — as a full member of your family. Will you promise, on behalf of your family, to continue to uphold them in prayer and give them your moral support?",
+      },
+      { type: "dialogue", speaker: "Groom's Mother", text: "I promise so in the name of God." },
+      {
+        type: "paragraph",
+        text:
+          "Let us pray. Eternal God, creator and sustainer of us all, give your grace to the family of VICTOR and AYOBAMI. Grant them that in the years to come they may be united in your love and in the strength of the Holy Spirit, and may live together in the love, joy and peace of our Saviour Jesus Christ. Amen.",
+      },
+    ],
+  },
+  {
+    id: "hymn-3",
+    title: "Hymn 3",
+    note: "God Give Us Christian Home",
+  },
+  {
+    id: "ministry",
+    title: "The Ministry of the Word",
+    content: [
+      { type: "paragraph", text: "1 Corinthians 13:1–13 — to be read by the Bride." },
+      { type: "paragraph", text: "Colossians 3:12–19 — to be read by the Bridegroom." },
+    ],
+  },
+  {
+    id: "hymn-4",
+    title: "Hymn 4",
+    note: "Jesus, My Lord, My God, My All",
+  },
+  {
+    id: "sermon",
+    title: "Sermon",
+  },
+  {
+    id: "hymn-5",
+    title: "Hymn 5",
+    note: "O Perfect Love — to be sung kneeling",
+  },
+  {
+    id: "closing-prayers",
+    title: "Closing Prayers",
+    content: [
+      {
+        type: "paragraph",
+        text:
+          "God of our ancestors, you are worthy of praise. May your name be honoured forever and ever by all your creatures in heaven and on earth. You said, 'It is not good for a man to be alone. I will make a suitable helper for him.' You created Adam and gave him Eve to be his helper and support. They became the parents of all mankind.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Lord, I have chosen AYOBAMI / VICTOR to be my spouse, because it is right — not because I lusted after him/her. Please, be merciful to us so that we may grow old together. Grant us your mercy and protection. Let us live our lives in happiness and love. Give us children and guide us to bring them up to your honour and glory. We pray that you will grant our requests through Jesus Christ our Lord.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Priest",
+        text:
+          "Heavenly Father, Maker of all things, you enable us to share in your work of creation. Bless this couple with the gift and care of children, that their home may be a place of love, security and truth, and their children grow up to know You and Your only begotten Son, Jesus Christ our Lord. Amen.",
+      },
+    ],
+  },
+  {
+    id: "benediction",
+    title: "Benediction",
+    content: [
+      {
+        type: "paragraph",
+        text:
+          "May the Lord guide you and direct you.\nMay His words instruct and inspire all you do.\nMay His arms uphold and defend you.\nMay His heavenly hosts surround and guard you.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "May His light surround you and lighten your darkness.\nMay His love enfold, abound in, and flow through you.\nMay His presence be felt around you.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "May the blessing of God Almighty — Father, Son, and Holy Spirit — abide with you and remain with you always. Amen.",
+      },
+    ],
+  },
+  { id: "signing", title: "Signing of the Marriage Register" },
+  { id: "thanksgiving", title: "Thanksgiving" },
+  { id: "announcement", title: "Announcement" },
+  { id: "withdrawal", title: "Withdrawal Hymn", note: "To God Be the Glory" },
+];
+
+export const churchOrderYoruba: ProgrammeItem[] = churchOrderEnglish.map((item) => ({
+  ...item,
+  content: item.content ? item.content.map((block) => ({ ...block })) : undefined,
+}));

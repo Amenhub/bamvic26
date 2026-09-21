@@ -43,7 +43,7 @@ export default function Hero() {
             to="/bridal"
             className="px-8 py-4 rounded-full border border-white/70 text-white text-xs uppercase tracking-[0.3em] font-medium hover:bg-white/10 transition-colors"
           >
-            View Bridal Train
+            Our Circle
           </Link>
         </div>
       </div>

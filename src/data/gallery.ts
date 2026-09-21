@@ -94,17 +94,18 @@ export type VideoItem = {
   isLive?: boolean;
 };
 
+export const liveEventVideo: VideoItem = {
+  id: "live-ceremony",
+  title: "Live Wedding Ceremony",
+  thumbnail: "/images/videos/live-standby.jpg",
+  source: "cloudinary",
+  videoId: "live_stream_ee8f7a3b93214646bfd263d2e22ec82e_hls",
+  duration: "Live now",
+  featured: true,
+  isLive: true,
+};
+
 export const videos: VideoItem[] = [
-  {
-    id: "live-ceremony",
-    title: "Live Wedding Ceremony",
-    thumbnail: "/images/videos/live-standby.jpg",
-    source: "cloudinary",
-    videoId: "live_stream_ee8f7a3b93214646bfd263d2e22ec82e_hls",
-    duration: "Live now",
-    featured: true,
-    isLive: true,
-  },
   {
     id: "vid-1",
     title: "Our Pre-Wedding Story (version 1)",
