@@ -10,7 +10,7 @@ export default function OurStory() {
         eyebrow="Where It All Began"
         title="Our Story"
         subtitle="Ayobami & Israel"
-        image="/images/story/hero.jpg"
+        image="https://res.cloudinary.com/dskyahrkd/image/upload/v1788439206/DSC_1112_sdx71y.jpg"
       />
 
       {/* Timeline */}
