@@ -397,7 +397,326 @@ export const churchOrderEnglish: ProgrammeItem[] = [
   { id: "withdrawal", title: "Withdrawal Hymn", note: "To God Be the Glory" },
 ];
 
-export const churchOrderYoruba: ProgrammeItem[] = churchOrderEnglish.map((item) => ({
-  ...item,
-  content: item.content ? item.content.map((block) => ({ ...block })) : undefined,
-}));
+// ============================================================
+// CHURCH SERVICE — ETO ISIN (Yoruba)
+// ============================================================
+export const churchOrderYoruba: ProgrammeItem[] = [
+  {
+    id: "orin-akowole",
+    title: "Orin Akowole",
+    note: "Okan mi yin Oba Orun",
+  },
+  {
+    id: "oro-iyanju",
+    title: "Oro Iyanju",
+    content: [
+      {
+        type: "note",
+        text: "Ijo yoo wa ni iduro bi Iyawo ati Oko Iyawo ti duro niwaju Alufa.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text:
+          "Olufe owon, awa pejo niwaju Olorun lati se eleri ajoyo igbeyawo ti AYOBAMI OLAJUMOKE ati ISRAEL VICTOR lati beere ibukun Olorun fun won ati lati se alabapin ninu ayo won. Jesu Kristi ti kara re je alejo ni igbeyawo ti Kana ti Galili, ti O si fi ibukun Re sori ona yii, ati nipa Emi Re, o wa pelu wa nisiyi.",
+      },
+      {
+        type: "yoruba",
+        text:
+          "Iwe Mimo ko wa pe ebun Olorun ni igbeyawo je ni iseda ati ona oore ofe; ni ijine mimo ninu eyi ti Okunrin ati Obinrin di ara kan. Eto Olorun ni pe Oko ati iyawo ti n fi ara won fun ara won, eni ikini si eni ikeji ninu ife gbogbo aye won, won di okan ninu ife won bi Kristi ti je okan pelu ijo Re.",
+      },
+      {
+        type: "yoruba",
+        text:
+          "A fi igbeyawo fun ni ki Oko ati Aya le je itunu ati oluranlowo fun ara won, ki won jumo maa gbe tokantokon ninu aini ati oro, ni ibanuje ati ayo. A tun fi fun ni pe ki won le mo ara won ni ife ati idunnu ati nipa idapo ara won, ki igbe aye won le kun fun isokan ati agbara emi.",
+      },
+      {
+        type: "yoruba",
+        text:
+          "A fi igbeyawo fun ni nitori omo bibi, ki a si le gba ibukun ni sise itoju won; ki a si to won ninu ife Olorun si iyin ati Ogo Re.",
+      },
+      {
+        type: "yoruba",
+        text:
+          "Ni igbeyawo, Oko ati Aya wa fun ara won, won si ni ajosepo laarin ebi kini ati keji, pelu ibere igbe aye otun, ajumogbe f'awujo, igbe aye yi je eyi ti a gbodo fi ola fun, a ko gbodo fi owo ye pere, aikas tiabi ife ara eni nikan mu un. Sugbon towotowo, toye-toye, pelu ironu jinle. Igbe aye yi ni AYOBAMI OLAJUMOKE ati ISRAEL VICTOR.",
+      },
+      {
+        type: "yoruba",
+        text:
+          "Bi enikeni ninu yin ba mo ohun idena tooto kan, eyi ti a ko fi le da awon eniyan wonyi po ni igbeyawo mimo, ki o wi ni iwoyi, bi ko se bee lati oni lo ki o pa enu re mo titi lae.",
+      },
+      {
+        type: "note",
+        text: "Bi ohun idena kan ko ba si, Alufa yio tesiwaju.",
+      },
+    ],
+  },
+  {
+    id: "ibeere-ati-idahun",
+    title: "Ibeere ati Idahun",
+    content: [
+      {
+        type: "note",
+        text: "Alufa yio wipe fun oko ati iyawo.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text:
+          "AYOBAMI OLAJUMOKE ati ISRAEL VICTOR, eje ti e o je ni e o je ni oruko Olorun, nitorina mo bere lowo eyin mejeeji, bi e o ti dahun niwaju Olorun eni ti o mo ohun ikoko okan wa; pe bi enikeni ninu yin ba mo idi ti a ko fi gbodo da yin po ni igbeyawo labe ofin ki o wi ni iwoyi.",
+      },
+      {
+        type: "note",
+        text: "Bi ohun idiwo ko ba si, Alufa yio tesiwaju.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text:
+          "ISRAEL VICTOR, ninu erongba ife okan ara re ni iwo fe lati gbe AYOBAMI OLAJUMOKE ni iyawo?",
+      },
+      {
+        type: "dialogue",
+        speaker: "Oko Iyawo",
+        text: "Mo fe.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text:
+          "Iwo yoo ma fe, iwo yoo ma tuu ninu, iwo yoo ma bu ola fun un, iwo yoo si maa dabobo nigba aisan ati oro, ki iwo ki o ko awon elomiran sile, ki iwo si je olooto si niwon igba ti eyin mejeeji yo fi wa ni aye?",
+      },
+      {
+        type: "dialogue",
+        speaker: "Oko Iyawo",
+        text: "Mo fe.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text:
+          "AYOBAMI OLAJUMOKE, ninu erongba ife okan re ni iwo fe gbe ISRAEL VICTOR ni oko?",
+      },
+      {
+        type: "dialogue",
+        speaker: "Iyawo",
+        text: "Mo fe.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text:
+          "Iwo yoo ma fe, iwo yoo ma tuu ninu, iwo yoo ma bu ola fun un, iwo yoo si ma da abo bo nigba aisan ati oro, ki iwo ki o ko awon elomiran sile, ki iwo si je olooto si niwon igba ti eyin mejeeji yo fi wa ni aye?",
+      },
+      {
+        type: "dialogue",
+        speaker: "Iyawo",
+        text: "Mo fe.",
+      },
+    ],
+  },
+  {
+    id: "orin-keji",
+    title: "Orin Keji",
+    note: "Ire ta su ni Eden",
+  },
+  {
+    id: "igbeyawo",
+    title: "Igbeyawo",
+    content: [
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text: "Tani o fi Obirin yi fun Okunrin yi lati gbe ni iyawo?",
+      },
+      {
+        type: "dialogue",
+        speaker: "Baba",
+        text: "Emi ni.",
+      },
+      {
+        type: "note",
+        text:
+          "Bi Alufa ti gba Obinrin naa, yoo fi owo otun iyawo le owo otun Oko-iyawo, Oko-iyawo yoo si wi pe:",
+      },
+      {
+        type: "dialogue",
+        speaker: "Oko Iyawo",
+        text:
+          "Emi ISRAEL VICTOR gba iwo AYOBAMI OLAJUMOKE ni aya mi, lati ni ati lati mu, lati oni lo, ti ibi ti re, nigba oro ati aini, ninu aisan ati ilera, lati fe, lati ke titi iku yoo fi ya wa, gege bi idasile mimo Olorun. Si eyi mo fi otito mi fun O.",
+      },
+      {
+        type: "note",
+        text:
+          "Iyawo yoo fi owo otun re mu owo otun Oko re, yoo si wipe:",
+      },
+      {
+        type: "dialogue",
+        speaker: "Iyawo",
+        text:
+          "Emi AYOBAMI OLAJUMOKE gba iwo ISRAEL VICTOR ni Oko mi, lati ni ati lati mu lati oni lo, ti ibi ti re nigba oro ati aini, ninu aisan ati ilera, lati fe, lati ke titi iku yoo fi ya wa, gege bi idasile mimo Olorun. Si eyi mo fi otito mi fun o.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text:
+          "Kini ami edidi ife ijowo ara eni fun enikeji laarin yin?",
+      },
+      {
+        type: "note",
+        text: "Alufa yio gba oruka naa yio gbe soke yio si wipe:",
+      },
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text:
+          "Oruka je ami isokan ati alalabawon, wura ti se ohun iyebiye, ti ojo re pe, ni a fi se, kini iba tun dara ju eyi lo bi ami ife laarin yin.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Baba orun, nipa ibukun re, se oruka yi ni ami ife ailopin laarin AYOBAMI OLAJUMOKE ati ISRAEL VICTOR ki o je ami isotito ti yoo maa ran won leti eje ati majemu ti won ba won da loni nipase Jesu Kristi Oluwa wa. Amin.",
+      },
+      {
+        type: "note",
+        text:
+          "Okunrin yoo fi oruka bo ika kerin owo osi Iyawo, yoo dii mu yoo si wipe:",
+      },
+      {
+        type: "dialogue",
+        speaker: "Oko Iyawo",
+        text:
+          "Mo fi oruka yii fun o bi ami igbeyawo wa. Ara mi ni eni o maa fi bu ola fun O, gbogbo ohun to mo ni ni eni o fi ke o; ni oruko Baba, ati ni ti Omo ati ni ti Emi Mimo. Amin.",
+      },
+      {
+        type: "note",
+        text:
+          "Iyawo yio ki oruka bo ika kerin owo osi Oko re, yio si dimu, yio si wipe:",
+      },
+      {
+        type: "dialogue",
+        speaker: "Iyawo",
+        text:
+          "Mo fi oruka yii fun o bi ami igbeyawo wa. Ara mi ni emi o maa fi bu ola fun O, gbogbo ohun to mo ni ni emi o fi ke o; ni oruko Baba, ati ni ti Omo ati ni ti Emi Mimo. Amin.",
+      },
+    ],
+  },
+  {
+    id: "ikede",
+    title: "Ikede",
+    content: [
+      {
+        type: "note",
+        text: "Iya Oko yoo jade siwaju.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text:
+          "Ni oruko Olorun ati ni oju ijo, a fi OMIDAN AYOBAMI OLAJUMOKE... nisisiyi IYA AFIN AYOBAMI OLAJUMOKE... le o lowo gege bi okan ninu ebi yin; nje eyin yoo se ileri loruko ebi yin lati maa gbe won ro pelu adura ki eyin ki o si maa ti won leyin.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Iya Oko",
+        text: "Mo seleri bee, ni oruko Oluwa.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text: "E je ki a gbadura.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Olorun ayeraye, Eleda ati Olupamo gbogbo eniyan, fi oore-ofe fun idile toko taya VICTOR ati AYOBAMI... fi fun won pe ni awon odun ti n bo, ki won ki o le je okan ninu ife Re, ati nipa agbara Emi Mimo, ki won le maa gbe po ninu ife ati ayo ti Olugbala wa Jesu Kristi. Amin.",
+      },
+    ],
+  },
+  {
+    id: "orin-keta",
+    title: "Orin Keta",
+    note: "Fun wa ni idile Kristieni",
+  },
+  {
+    id: "kika-oro-oloun",
+    title: "Kika Oro Olorun",
+    content: [
+      { type: "paragraph", text: "1 Korinti 13:1–13 — Iyawo yoo ka." },
+      { type: "paragraph", text: "Kolose 3:12–19 — Oko Iyawo yoo ka." },
+    ],
+  },
+  {
+    id: "orin-kerin",
+    title: "Orin Kerin",
+    note: "Jesu Oluwa, Oba mi",
+  },
+  {
+    id: "iwaasu",
+    title: "Iwaasu",
+  },
+  {
+    id: "orin-karun",
+    title: "Orin Karun",
+    note: "Ile Pipe — a o ko fori ikunle",
+  },
+  {
+    id: "adura-ipari",
+    title: "Adura Ipari",
+    content: [
+      {
+        type: "paragraph",
+        text:
+          "A fi iyin fun O, Olorun awon Baba nla wa, jowo je ki awon eda owo Re ni aye ati orun le maa bowo fun oruko Re laelae. O wipe, 'ko dara ki Okunrin naa ki o nikan ma gbe. Emi o se oluranlowo ti o dabi re fun.' O da Adamu O si fun ni iyawo re Efa lati je oluranlowo ati alatilehin re; awon mejeeji si je obi gbogbo aniyan.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Oluwa, mo ti yan AYOBAMI / VICTOR lati je Oko/Aya mi, nitoripe o to, kii se pe mo se ifekufe sii. Jowo, saanu fun wa ki a le dagba papo titi di ojo ogbo. Fun wa ni aanu ati abo. Je ki a le gbe igbesi aye wa ninu ayo ati ife. Fun wa ni awon omo, ki o si je ki a ni imo lati to won ni ona otito ati ododo. A gba adura yi nipase Jesu Kristi.",
+      },
+      {
+        type: "dialogue",
+        speaker: "Alufa",
+        text:
+          "Baba wa orun, Iwo ti da ohun gbogbo ti o si fun wa ni anfani lati ni ipin ninu ise iseda aye. Bukun ile yi pelu ebun omo ati itoju won; ki ile won je ibi ife, abo ati otito; ki awon omo won dagba lati mo O ati feran Re, nitori omo bibi re nilansoso, Jesu Kristi Oluwa wa. Amin.",
+      },
+    ],
+  },
+  {
+    id: "ibukun",
+    title: "Ibukun",
+    content: [
+      {
+        type: "paragraph",
+        text:
+          "Ki Oluwa maa to yin; ki O si ma dariori yin.\nKi ogbon Re maa to yin, ki o si maa fi oye ye yin;\nki oro Re maa ko yin; ki o si maa mi si yin ninu gbogbo ise yin;\nki owo Re gbe yin ro; ki o si maa dabobo yin.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Ki awon ogun orun ki won rogba yi yin ka, ki won si pa yin mo.\nKi imole Re mole yi yin ka; ki o si ma san ninu yin;\nki agbara Re pa yin mo, ki o si maa ba yin gbe; ki o wa lodo yin, nibi gbogbo.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Ki ibukun Olorun Olodumare, ti Baba, ti Omo ati ni ti Emi Mimo, ki o wa pelu yin, ki o si maa ba yin gbe nigba gbogbo. Amin.",
+      },
+    ],
+  },
+  {
+    id: "fifi-owo",
+    title: "Fifi Owo si Iwe Eri Igbeyawo",
+  },
+  {
+    id: "idupe",
+    title: "Idupe",
+  },
+  {
+    id: "ifilo",
+    title: "Ifilo",
+  },
+  {
+    id: "orin-akojade",
+    title: "Orin Akojade",
+    note: "Ogo ni fOlowa",
+  },
+];

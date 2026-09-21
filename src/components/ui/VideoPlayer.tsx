@@ -15,13 +15,16 @@ export default function VideoPlayer({ video }: { video: VideoItem }) {
     video.title.toLowerCase().includes("portrait") ||
     video.title.toLowerCase().includes("story");
 
-  // Detect HLS: either flagged as live, or the id ends with _hls
+  // Detect HLS: only true live streams should use the Cloudinary live endpoint.
   const isHls = video.isLive === true || video.videoId.endsWith("_hls");
+  const cleanVideoId = video.videoId.replace(/\.(mp4|m3u8)$/i, "");
 
-  // Build the Cloudinary URL — .m3u8 for HLS, .mp4 otherwise
-  const cloudinaryUrl = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/video/live/${video.videoId}${
-    isHls ? ".m3u8" : ".mp4"
-  }`;
+  // Build the Cloudinary URL correctly for each video type:
+  // - regular MP4s use the upload endpoint
+  // - live HLS streams use the live endpoint
+  const cloudinaryUrl = isHls
+    ? `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/video/live/${cleanVideoId}.m3u8`
+    : `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/video/upload/${cleanVideoId}.mp4`;
 
   // Wire up hls.js (or native playback for Safari)
   useEffect(() => {

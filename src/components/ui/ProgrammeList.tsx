@@ -44,13 +44,31 @@ function getHymnBlocks(
   item: ProgrammeItem,
   language: "english" | "yoruba",
 ): ContentBlock[] | undefined {
+  const hymnAliasMap: Record<string, string> = {
+    "orin-akowole": "hymn-1",
+    "orin-keji": "hymn-2",
+    "orin-keta": "hymn-3",
+    "orin-kerin": "hymn-4",
+    "orin-karun": "hymn-5",
+    "orin-akojade": "hymn-6",
+  };
+
+  const normalizedItemId = item.id.toLowerCase();
   const hymn = hymns.find((entry) => {
-    if (entry.id === item.id) return true;
-    if (item.note) {
-      const haystack = `${item.note} ${item.title}`.toLowerCase();
-      return haystack.includes(entry.title.toLowerCase());
+    if (entry.id.toLowerCase() === (hymnAliasMap[normalizedItemId] ?? normalizedItemId)) {
+      return true;
     }
-    return false;
+
+    const itemTitle = item.title.toLowerCase();
+    const itemNote = item.note?.toLowerCase() ?? "";
+    const haystack = `${itemNote} ${itemTitle}`;
+
+    return (
+      entry.title.toLowerCase() === itemTitle ||
+      entry.yorubaTitle?.toLowerCase() === itemTitle ||
+      haystack.includes(entry.title.toLowerCase()) ||
+      (entry.yorubaTitle && haystack.includes(entry.yorubaTitle.toLowerCase()))
+    );
   });
 
   if (!hymn) return undefined;
