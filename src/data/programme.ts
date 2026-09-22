@@ -49,7 +49,6 @@ export const churchOfficers = [
 // ============================================================
 export type WeddingParty = {
   parents: PartyMember[];
-  bestPair: PartyMember[];
   bridalTrain: {
     chiefBrideMaid: PartyMember;
     littleBride: PartyMember;
@@ -67,7 +66,7 @@ export const weddingParty: WeddingParty = {
   parents: [
     {
       name: "Bride's Father",
-      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999218/Dadd_Ayo_wfeqac.png",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790012194/Dad_Ayo_bmyimk.jpg",
     },
     {
       name: "Bride's Mother",
@@ -75,40 +74,21 @@ export const weddingParty: WeddingParty = {
     },
     {
       name: "Groom's Father",
-      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790000593/dad_vaksdp.png",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790028287/dad_jof4lv.png",
     },
     {
       name: "Groom's Mother",
-      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790000593/mum_tugssx.png",
-    },
-  ],
-
-  bestPair: [
-    {
-      name: "Dickson Ayinde",
-      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999217/Dickson2_th3c8p.jpg",
-    },
-    {
-      name: "OGUNTADE Oluwapelumi Racheal",
-      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790001952/Racheal_hskqnp.png",
-    },
-    {
-      name: "Ayomide Mercy",
-      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790001952/AyomideG_qmc2q8.png",
-    },
-    {
-      name: "Akinwunmi Fogofoluwa Maxwell",
-      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999218/WhatsApp_Image_2026-09-18_at_10.08.14_mhg6e7.jpg",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790012086/mum_dl06ck.png",
     },
   ],
 
   bridalTrain: {
     chiefBrideMaid: {
-      name: "Oluwapelumi Racheal Oguntunde",
+      name: "Racheal Ayomide",
       image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790001952/Racheal_hskqnp.png",
     },
     littleBride: {
-      name: "Ayomide Mercy",
+      name: "OGUNTUNDE Ayomide Mercy",
       image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790001952/AyomideG_qmc2q8.png",
     },
     ringBearer: {
@@ -140,7 +120,7 @@ export const weddingParty: WeddingParty = {
       { name: "OJO Ayomikun Moses",      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997334/Ayomikun_v7qonh.jpg" },
       { name: "BAMIGBADE Aderinto",      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790004419/Aderinto_hinjgg.jpg" },
       { name: "BADA Babalola Oluwapamilerinayo",    image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997335/Pamilerin_zwpppy.jpg" },
-      { name: "ZOGUNDIRAN Damilare Feranni",          image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997336/Ferami_qedzi1.jpg" },
+      { name: "OGUNDIRAN Damilare Feranni",          image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997336/Ferami_qedzi1.jpg" },
     ],
   },
 };

@@ -7,6 +7,7 @@ import Programme from "./pages/Programme";
 import Gallery from "./pages/Gallery";
 import Bridal from "./pages/Bridal";
 import NotFound from "./pages/NotFound";
+import Donate from "./pages/Donate";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/programme" element={<Programme />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/donate" element={<Donate />} />
         </Route>
       </Routes>
     </BrowserRouter>
