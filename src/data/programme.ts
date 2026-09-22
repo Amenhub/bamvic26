@@ -53,6 +53,7 @@ export type WeddingParty = {
     chiefBrideMaid: PartyMember;
     littleBride: PartyMember;
     ringBearer: PartyMember;
+    brideSister: PartyMember;
     brideMaids: PartyMember[];
   };
   groomMen: {
@@ -95,7 +96,11 @@ export const weddingParty: WeddingParty = {
       name: "Akinwunmi Fogofoluwa Maxwell",
       image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999218/WhatsApp_Image_2026-09-18_at_10.08.14_mhg6e7.jpg",
     },
-    brideMaids: [
+    brideSister: {
+      name: "Ayotomiwa Jawolusi",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999219/AYOTOMIWA_esrdwi.png",
+    },
+      brideMaids: [
       { name: "Adaralegbe Oluwafunmilayo", image: "" },
       { name: "AGBOOLA Esther",            image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999219/ESTHER_au5lzc.png" },
       { name: "AKINLOYE Ifeolowa",         image: "" },
