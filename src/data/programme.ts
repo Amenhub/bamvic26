@@ -98,7 +98,7 @@ export const weddingParty: WeddingParty = {
     },
     brideSister: {
       name: "Ayotomiwa Jawolusi",
-      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999219/AYOTOMIWA_esrdwi.png",
+      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790091715/Ayotomiwa_jrmv05.jpg",
     },
       brideMaids: [
       { name: "Adaralegbe Oluwafunmilayo", image: "" },

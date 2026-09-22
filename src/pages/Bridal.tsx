@@ -23,6 +23,7 @@ const bestPair: BridalCard[] = [
     image: weddingParty.bridalTrain.chiefBrideMaid.image,
     role: "Best Lady",
   },
+
   {
     name: weddingParty.bridalTrain.littleBride.name,
     image: weddingParty.bridalTrain.littleBride.image,
@@ -32,6 +33,11 @@ const bestPair: BridalCard[] = [
     name: weddingParty.bridalTrain.ringBearer.name,
     image: weddingParty.bridalTrain.ringBearer.image,
     role: "Ring Bearer",
+  },
+    {
+    name: weddingParty.bridalTrain.brideSister.name,     // ← NEW
+    image: weddingParty.bridalTrain.brideSister.image,   // ← NEW
+    role: "Bride's Sister",                              // ← NEW
   },
 ];
 
