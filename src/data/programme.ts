@@ -125,7 +125,8 @@ export const weddingParty: WeddingParty = {
       { name: "OJO Ayomikun Moses",      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997334/Ayomikun_v7qonh.jpg" },
       { name: "BAMIGBADE Aderinto",      image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790004419/Aderinto_hinjgg.jpg" },
       { name: "BADA Babalola Oluwapamilerinayo",    image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997335/Pamilerin_zwpppy.jpg" },
-      { name: "OGUNDIRAN Damilare Feranni",          image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997336/Ferami_qedzi1.jpg" },
+      { name: "OGUNDIRAN Feranni Damilare",          image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997336/Ferami_qedzi1.jpg" },
+      { name: "AGBOOLA Emmanuel Olaitan",          image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790164413/EMmanuel_o9yhtn.jpg" },
     ],
   },
 };
