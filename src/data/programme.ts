@@ -93,15 +93,15 @@ export const weddingParty: WeddingParty = {
       image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790001952/AyomideG_qmc2q8.png",
     },
     ringBearer: {
-      name: "Akinwunmi Fogofoluwa Maxwell",
+      name: "AKINWUNMI Fogofoluwa Maxwell",
       image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999218/WhatsApp_Image_2026-09-18_at_10.08.14_mhg6e7.jpg",
     },
     brideSister: {
-      name: "Ayotomiwa Jawolusi",
+      name: "JAWOLUSI Ayotomiwa",
       image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790091715/Ayotomiwa_jrmv05.jpg",
     },
       brideMaids: [
-      { name: "Adaralegbe Oluwafunmilayo", image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790151738/Funmilayo_advjgu.jpg" },
+      { name: "ADERALEGBE Oluwafunmilayo", image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790151738/Funmilayo_advjgu.jpg" },
       { name: "AGBOOLA Esther",            image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999219/ESTHER_au5lzc.png" },
       { name: "AKINLOYE Ifeolowa",         image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790151735/IfeoluwaG_jgd3ph.jpg" },
       { name: "AJIBI Oluwapelumi",         image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997336/OLUWAPELUMI_lx56es.png" },
