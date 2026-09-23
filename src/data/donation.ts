@@ -15,4 +15,9 @@ export const bankAccounts: BankAccount[] = [
     accountName: "Israel Victor Ayinde",
     accountNumber: "7039192785",
   },
+  {
+    bank: "Access Bank",
+    accountName: "1513339261",
+    accountNumber: "7039192785",
+  },
 ];
