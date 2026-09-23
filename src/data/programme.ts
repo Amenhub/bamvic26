@@ -105,7 +105,7 @@ export const weddingParty: WeddingParty = {
       { name: "AGBOOLA Esther",            image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789999219/ESTHER_au5lzc.png" },
       { name: "AKINLOYE Ifeolowa",         image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790151735/IfeoluwaG_jgd3ph.jpg" },
       { name: "AJIBI Oluwapelumi",         image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1789997336/OLUWAPELUMI_lx56es.png" },
-      { name: "ADEBAYO Mololuwa Mary",     image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790151736/Mololuwa_fw6v3y.jpg" },
+      { name: "ADEDAYO Mololuwa Mary",     image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790151736/Mololuwa_fw6v3y.jpg" },
       { name: "OYEBODE Temitope",          image: "https://res.cloudinary.com/dskyahrkd/image/upload/v1790153002/Temitope_boa7ix.jpg" },
     ],
   },
