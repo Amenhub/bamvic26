@@ -138,7 +138,7 @@ export default function Donate() {
           {/* Closing note */}
           <div className="flex flex-col gap-3 mt-4">
             <p className="text-xs uppercase tracking-[0.3em] text-brown/40">
-              Bank Transfer &middot; Naira &middot; Thank You
+              Bank Transfer &middot; Naira, Pounds and US Dollar &middot; Thank You
             </p>
             <p className="font-script text-3xl md:text-4xl text-orange mt-2">
               We love you
