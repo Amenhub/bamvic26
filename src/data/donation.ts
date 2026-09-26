@@ -25,13 +25,13 @@ export const bankAccounts: BankAccount[] = [
     token: "Nill"
   },
     {
-    bank: "Clear Junction Limited",
+    bank: "Clear Junction Limited (GBP Pounds)",
     accountName: "Israel Victor Ayinde",
     accountNumber: "35403669",
     token: "041307"
   },
   {
-    bank: "Lead",
+    bank: "Lead (US Dollar)",
     accountName: "Israel Victor Ayinde",
     accountNumber: "214993874549",
     token: "101019644"
