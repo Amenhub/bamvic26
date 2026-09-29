@@ -118,6 +118,13 @@ export const videos: VideoItem[] = [
     title: "Our Pre-Wedding Story (version 2)",
     thumbnail: "https://res.cloudinary.com/dskyahrkd/image/upload/t_portfolio_thumb/v1788439195/DSC_1087_grrgjq.jpg",
     source: "youtube",
-    videoId: "YOUR_YOUTUBE_VIDEO_ID_2", // Replace with the actual YouTube ID
+    videoId: "XrvOWVYb6wQ", 
+  },
+    {
+    id: "vid-3",
+    title: "Our Pre-Wedding Story (version 3)",
+    thumbnail: "https://res.cloudinary.com/dskyahrkd/image/upload/t_portfolio_thumb/v1788439195/DSC_1087_grrgjq.jpg",
+    source: "youtube",
+    videoId: "_6RG3Er1gXM", 
   },
 ];
