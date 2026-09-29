@@ -109,15 +109,15 @@ export const videos: VideoItem[] = [
   {
     id: "vid-1",
     title: "Our Pre-Wedding Story (version 1)",
-    thumbnail: "https://res.cloudinary.com/dskyahrkd/image/upload/v1788439240/DSC_1239_pgm5za.jpg",
-    source: "cloudinary",
-    videoId: "v1789910638/Bamifeiiv_vkyg2m",
+    thumbnail: "https://res.cloudinary.com/dskyahrkd/image/upload/t_portfolio_thumb/v1788439240/DSC_1239_pgm5za.jpg", 
+    source: "youtube",
+    videoId: "GEY-0wJ8px4", 
   },
   {
     id: "vid-2",
     title: "Our Pre-Wedding Story (version 2)",
-    thumbnail: "https://res.cloudinary.com/dskyahrkd/image/upload/v1788439195/DSC_1087_grrgjq.jpg",
-    source: "cloudinary",
-    videoId: "Bamitifeaiv2_ihgn9k",
+    thumbnail: "https://res.cloudinary.com/dskyahrkd/image/upload/t_portfolio_thumb/v1788439195/DSC_1087_grrgjq.jpg",
+    source: "youtube",
+    videoId: "YOUR_YOUTUBE_VIDEO_ID_2", // Replace with the actual YouTube ID
   },
 ];
