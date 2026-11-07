@@ -7,7 +7,21 @@ import type { VideoItem } from "../data/gallery";
 
 afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.useRealTimers(); });
 const state = (videoId: string | null, status = "live") => ({ status, videoId, title: "Ceremony", thumbnail: "https://img.test/live.jpg", startedAt: "2026-11-07T04:56:56Z", verifiedAt: new Date().toISOString(), version: 1, stale: false });
-function mockFetch(get: () => object) { vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(get()), { status: 200, headers: { "content-type": "application/json" } }))); }
+function mockFetch(get: () => ReturnType<typeof state>) {
+  vi.stubGlobal("fetch", vi.fn(async () => {
+    const current = get();
+    return new Response(JSON.stringify([{
+      status: current.status,
+      video_id: current.videoId,
+      title: current.title,
+      thumbnail: current.thumbnail,
+      started_at: current.startedAt,
+      verified_at: current.verifiedAt,
+      version: current.version,
+      stale: current.stale,
+    }]), { status: 200, headers: { "content-type": "application/json" } });
+  }));
+}
 
 describe("livestream UI", () => {
   it("uses current stream and replaces the iframe while modal remains open", async () => {
