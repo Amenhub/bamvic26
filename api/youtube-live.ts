@@ -1,10 +1,11 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { createClient } from "@supabase/supabase-js";
 import { timingSafeEqual } from "node:crypto";
+import { livestreamConfig } from "../config/livestream-secrets";
 import { getQuotaReservation, getRpcData } from "./quota";
 
-const channelId = process.env.YOUTUBE_CHANNEL_ID || "UCc8mnnXHeaWzIjOqMkBl-Fw";
-const eventId = process.env.LIVESTREAM_EVENT_ID || "bamvic26";
+const channelId = livestreamConfig.YOUTUBE_CHANNEL_ID || "UCc8mnnXHeaWzIjOqMkBl-Fw";
+const eventId = livestreamConfig.LIVESTREAM_EVENT_ID || "bamvic26";
 const idPattern = /^[A-Za-z0-9_-]{11}$/;
 type Status = "waiting" | "live" | "reconnecting" | "offline" | "unknown";
 const headers = { "Cache-Control": "no-store, max-age=0", "CDN-Cache-Control": "no-store", "Vercel-CDN-Cache-Control": "no-store" };
@@ -15,14 +16,14 @@ function publicState(row: LiveRow | null | undefined) {
 }
 async function youtube(path: string, params: Record<string,string>) {
   const url = new URL(`https://www.googleapis.com/youtube/v3/${path}`);
-  Object.entries({ ...params, key: process.env.YOUTUBE_API_KEY || "" }).forEach(([k,v]) => url.searchParams.set(k,v));
+  Object.entries({ ...params, key: livestreamConfig.YOUTUBE_API_KEY || "" }).forEach(([k,v]) => url.searchParams.set(k,v));
   const response = await fetch(url, { signal: AbortSignal.timeout(9000) });
   if (!response.ok) throw new Error(response.status === 403 ? "quota_or_api_error" : "youtube_api_error");
   return response.json();
 }
 function inWindow(now = new Date()) {
-  const start = process.env.LIVESTREAM_MONITOR_START_LAGOS;
-  const end = process.env.LIVESTREAM_MONITOR_END_LAGOS;
+  const start = livestreamConfig.LIVESTREAM_MONITOR_START_LAGOS;
+  const end = livestreamConfig.LIVESTREAM_MONITOR_END_LAGOS;
   if (!start || !end) return true;
   const parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Lagos", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(now).split(":").map(Number);
   const minute = parts[0] * 60 + parts[1];
@@ -38,10 +39,10 @@ export default async function handler(_req: VercelRequest, res: VercelResponse) 
   res.setHeader("Cache-Control", headers["Cache-Control"]); res.setHeader("CDN-Cache-Control", "no-store"); res.setHeader("Vercel-CDN-Cache-Control", "no-store");
   if (_req.method !== "GET") return res.status(405).json({ error: "method_not_allowed" });
   if (_req.query.refresh === "1") {
-    const expected = process.env.LIVESTREAM_REFRESH_SECRET;
+    const expected = livestreamConfig.LIVESTREAM_REFRESH_SECRET;
     if (!expected || !secretMatches(String(_req.headers.authorization || "").replace(/^Bearer\s+/i, ""), expected)) return res.status(401).json({ error: "unauthorized" });
   }
-  const { SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, YOUTUBE_API_KEY } = process.env;
+  const { SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, YOUTUBE_API_KEY } = livestreamConfig;
   if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY || !YOUTUBE_API_KEY) return res.status(503).json(publicState(null));
   const db = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } });
   const { data: rows } = await db.from("livestream_state").select("*").eq("event_id", eventId).limit(1);
@@ -59,7 +60,7 @@ export default async function handler(_req: VercelRequest, res: VercelResponse) 
         }
         const due = !current || Date.now() >= Date.parse(current.next_discovery_at || "");
         if (due && inWindow()) {
-          const reservation = await db.rpc("reserve_livestream_quota", { p_cost: 100, p_budget: Number(process.env.LIVESTREAM_DAILY_QUOTA_BUDGET || 7000) });
+          const reservation = await db.rpc("reserve_livestream_quota", { p_cost: 100, p_budget: Number(livestreamConfig.LIVESTREAM_DAILY_QUOTA_BUDGET || 7000) });
           getQuotaReservation(reservation);
           const search = await youtube("search", { part: "snippet", channelId, eventType: "live", type: "video", maxResults: "50" }) as { items?: { id?: { videoId?: string } }[] };
           const ids = [...new Set((search.items || []).map((x) => x.id?.videoId).filter((x: unknown) => typeof x === "string" && idPattern.test(x)))];

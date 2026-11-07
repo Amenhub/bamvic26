@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { timingSafeEqual } from "node:crypto";
+import { livestreamConfig } from "../config/livestream-secrets";
 
 function matchesBearer(header: string, secret: string) {
   const token = header.match(/^Bearer\s+(.+)$/i)?.[1] ?? "";
@@ -10,7 +11,7 @@ function matchesBearer(header: string, secret: string) {
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "GET") return res.status(405).json({ error: "method_not_allowed" });
-  const secret = process.env.LIVESTREAM_REFRESH_SECRET;
+  const secret = livestreamConfig.LIVESTREAM_REFRESH_SECRET;
   const header = req.headers.authorization || "";
   if (!secret || !matchesBearer(header, secret)) return res.status(401).json({ error: "unauthorized" });
   const base = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `https://${req.headers.host}`;
