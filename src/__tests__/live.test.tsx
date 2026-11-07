@@ -11,7 +11,7 @@ function mockFetch(get: () => object) { vi.stubGlobal("fetch", vi.fn(async () =>
 
 describe("livestream UI", () => {
   it("uses current stream and replaces the iframe while modal remains open", async () => {
-    vi.useFakeTimers(); let id = "5_vVrw4Qiw8"; mockFetch(() => state(id));
+    vi.useFakeTimers(); Object.defineProperty(document, "visibilityState", { configurable: true, value: "visible" }); let id = "5_vVrw4Qiw8"; mockFetch(() => state(id));
     render(<VideoGrid videos={[liveEventVideo]} />);
     await act(async () => { vi.runOnlyPendingTimers(); await Promise.resolve(); });
     await act(async () => { screen.getByRole("button", { name: /ceremony/i }).click(); });

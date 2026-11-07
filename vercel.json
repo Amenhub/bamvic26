@@ -1,4 +1,3 @@
 {
-  "crons": [{ "path": "/api/livestream-refresh", "schedule": "* * * * *" }],
   "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }]
 }

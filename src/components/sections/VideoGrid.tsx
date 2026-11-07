@@ -2,13 +2,16 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import type { VideoItem } from "../../data/gallery";
 import VideoModal from "../ui/VideoModal";
+import { useYouTubeLive } from "../../hooks/useYouTubeLive";
 
 export default function VideoGrid({ videos }: { videos: VideoItem[] }) {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const live = useYouTubeLive();
 
   const featured = videos.find((v) => v.featured);
   const rest = videos.filter((v) => !v.featured);
-  const selected = videos.find((v) => v.id === activeId) ?? null;
+  const liveVideo = featured?.id === "live-ceremony" ? { ...featured, videoId: live.videoId ?? "", title: live.title ?? featured.title, thumbnail: live.thumbnail ?? featured.thumbnail, isLive: live.status === "live", duration: live.status === "live" ? "Live now" : live.status === "reconnecting" ? "Reconnecting to the livestream" : "Livestream status is being checked" } : null;
+  const selected = activeId === "live-ceremony" ? liveVideo : videos.find((v) => v.id === activeId) ?? null;
 
   return (
     <section className="bg-white py-20 md:py-32 px-5 md:px-16">
