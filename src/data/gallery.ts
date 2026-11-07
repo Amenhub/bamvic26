@@ -97,9 +97,9 @@ export type VideoItem = {
 export const liveEventVideo: VideoItem = {
   id: "live-ceremony",
   title: "Live Wedding Ceremony",
-  thumbnail: "/images/videos/live-standby.jpg",
-  source: "cloudinary",
-  videoId: "live_stream_ee8f7a3b93214646bfd263d2e22ec82e_hls",
+  thumbnail: "https://res.cloudinary.com/dskyahrkd/image/upload/v1788439212/DSC_1089_ov0g9l.jpg",
+  source: "youtube",
+  videoId: "GNr-JpNddRI?feature=share",
   duration: "Live now",
   featured: true,
   isLive: true,
