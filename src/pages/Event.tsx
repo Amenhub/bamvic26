@@ -1,6 +1,7 @@
 import { useState } from "react";
 import VideoPlayer from "../components/ui/VideoPlayer";
 import { liveEventVideo } from "../data/gallery";
+import { useYouTubeLive } from "../hooks/useYouTubeLive";
 
 type ChatMessage = {
   id: number;
@@ -19,6 +20,8 @@ export default function Event() {
   const [messages, setMessages] = useState<ChatMessage[]>(seededMessages);
   const [name, setName] = useState("Guest");
   const [message, setMessage] = useState("");
+  const live = useYouTubeLive();
+  const currentLiveVideo = { ...liveEventVideo, videoId: live.videoId ?? "", title: live.title ?? liveEventVideo.title };
 
   const submitMessage = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -48,9 +51,31 @@ export default function Event() {
 
         <section className="overflow-hidden rounded-[22px] border border-brown/10 bg-[#121212] p-2 shadow-[0_25px_70px_rgba(38,26,13,0.10)] md:p-4">
           <div className="overflow-hidden rounded-[18px] bg-black">
-            <VideoPlayer video={liveEventVideo} />
+            {live.status === "live" && currentLiveVideo.videoId ? (
+              <VideoPlayer video={currentLiveVideo} />
+            ) : (
+              <div className="flex aspect-video w-full flex-col items-center justify-center bg-[#17120f] px-6 text-center text-white">
+                <span className="mb-5 h-10 w-10 animate-spin rounded-full border-2 border-white/25 border-t-white" aria-hidden="true" />
+                <h2 className="font-serif text-xl md:text-2xl">
+                  {live.status === "offline" ? "The livestream has ended" : "Fetching the livestream"}
+                </h2>
+                <p className="mt-2 max-w-md text-sm text-white/70" role="status" aria-live="polite">
+                  {live.status === "reconnecting"
+                    ? "The stream was interrupted. We’re checking for the broadcast to resume or restart."
+                    : live.status === "offline"
+                      ? "There is no active livestream right now."
+                      : live.status === "waiting"
+                        ? "We’ll show the video here as soon as the livestream starts."
+                        : "Checking the latest livestream status. This will update automatically."}
+                </p>
+              </div>
+            )}
           </div>
         </section>
+        <p className="mt-3 text-center text-xs uppercase tracking-[0.2em] text-brown/60" role="status" aria-live="polite">
+          {live.status === "live" ? "Live now" : live.status === "reconnecting" ? "Stream interrupted. Reconnecting…" : live.status === "offline" ? "The livestream has ended" : live.status === "waiting" ? "The livestream will appear here when it starts" : "Checking livestream status…"}
+          {live.stale && live.status === "live" ? " · Status may be out of date" : ""}
+        </p>
 
         <section className="mt-10 rounded-[28px] border border-brown/10 bg-white p-5 md:p-8">
           <div className="mb-6 flex items-center justify-between gap-3">

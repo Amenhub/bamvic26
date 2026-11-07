@@ -99,7 +99,7 @@ export const liveEventVideo: VideoItem = {
   title: "Live Wedding Ceremony",
   thumbnail: "https://res.cloudinary.com/dskyahrkd/image/upload/v1788439212/DSC_1089_ov0g9l.jpg",
   source: "youtube",
-  videoId: "GNr-JpNddRI?feature=share",
+  videoId: "",
   duration: "Live now",
   featured: true,
   isLive: true,

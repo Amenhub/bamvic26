@@ -4,10 +4,11 @@ import type { VideoItem } from "../../data/gallery";
 import VideoModal from "../ui/VideoModal";
 
 export default function VideoGrid({ videos }: { videos: VideoItem[] }) {
-  const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(null);
 
   const featured = videos.find((v) => v.featured);
   const rest = videos.filter((v) => !v.featured);
+  const selected = videos.find((v) => v.id === activeId) ?? null;
 
   return (
     <section className="bg-white py-20 md:py-32 px-5 md:px-16">
@@ -18,7 +19,7 @@ export default function VideoGrid({ videos }: { videos: VideoItem[] }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            onClick={() => setActiveVideo(featured)}
+            onClick={() => setActiveId(featured.id)}
             className="group relative overflow-hidden rounded-3xl aspect-video w-full text-left"
           >
             <img
@@ -81,7 +82,7 @@ export default function VideoGrid({ videos }: { videos: VideoItem[] }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                onClick={() => setActiveVideo(video)}
+                onClick={() => setActiveId(video.id)}
                 className="group relative overflow-hidden rounded-2xl aspect-video text-left"
               >
                 <img
@@ -132,7 +133,7 @@ export default function VideoGrid({ videos }: { videos: VideoItem[] }) {
         )}
       </div>
 
-      <VideoModal video={activeVideo} onClose={() => setActiveVideo(null)} />
+      <VideoModal video={selected} onClose={() => setActiveId(null)} />
     </section>
   );
 }

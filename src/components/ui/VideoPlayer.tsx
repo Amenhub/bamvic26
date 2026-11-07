@@ -1,9 +1,11 @@
 import type { VideoItem } from "../../data/gallery";
 
 export default function VideoPlayer({ video }: { video: VideoItem }) {
+  const validYouTubeId = /^[A-Za-z0-9_-]{11}$/.test(video.videoId);
   const hasPlayableVideo = Boolean(
     video.videoId &&
-      video.videoId !== "YOUR_YOUTUBE_VIDEO_ID"
+      video.videoId !== "YOUR_YOUTUBE_VIDEO_ID" &&
+      (video.source !== "youtube" || validYouTubeId)
   );
 
   const isPortrait =
